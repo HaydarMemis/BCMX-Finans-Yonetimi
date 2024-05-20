@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelirler - BCMX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>BCMX</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="income.html">Gelirler</a>
+            <a href="expenses.html">Giderler</a>
+            <a href="portfolio.html">Portföylerim</a>
+            <a href="profile.html">Profil</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Gelirler</h2>
+            <form id="income-form">
+                <input type="text" id="income-name" placeholder="Gelir Adı" required>
+                <input type="number" id="income-amount" placeholder="Tutar" required>
+                <select id="income-currency">
+                    <option value="TL">TL</option>
+                    <option value="USD">USD</option>
+                </select>
+                <button type="submit">Ekle</button>
+            </form>
+            <table id="income-table">
+                <thead>
+                    <tr>
+                        <th>Adı</th>
+                        <th>Tutar</th>
+                        <th>Para Birimi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCMX. Tüm hakları saklıdır.</p>
+        <p><a href="profile.html">Profil</a> | <a href="support.html">Destek</a> | <a href="details.html">Detaylı Bilgi</a></p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
