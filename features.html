@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özellikler - BCMX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">BCMX</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#anasayfa">Ana Sayfa</a></li>
+                    <li><a href="features.html">Özellikler</a></li>
+                    <li><a href="pricing.html">Fiyatlandırma</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li class="auth-buttons">
+                        <a href="#" onclick="openAuthModal('login')" class="login-btn">Giriş Yap</a>
+                        <a href="#" onclick="openAuthModal('register')" class="register-btn">Kayıt Ol</a>
+                    </li>
+                    <li class="profile-icon">
+                        <img src="path/to/default-profile-image.jpg" alt="Profil">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="features" id="ozellikler">
+            <h1>BCMX'in Özellikleri</h1>
+            <p class="features-intro">BCMX ile finansal hayatınızı dönüştürün. İşte size sunduğumuz özellikler:</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Akıllı Bütçe Planlayıcı</h3>
+                    <p>Yapay zeka destekli önerilerle harcamalarınızı optimize edin ve tasarruflarınızı artırın.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Kapsamlı Portföy Analizi</h3>
+                    <p>Yatırımlarınızı gerçek zamanlı izleyin, risk analizleri yapın ve portföyünüzü çeşitlendirin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Hedef Odaklı Finansal Planlama</h3>
+                    <p>Kısa ve uzun vadeli finansal hedefleriniz için özelleştirilmiş stratejiler oluşturun.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Güvenli ve Şeffaf İşlemler</h3>
+                    <p>Banka düzeyinde güvenlik önlemleri ve blok zinciri teknolojisi ile verilerinizi koruyoruz.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobil Uyumlu Arayüz</h3>
+                    <p>Finansal verilerinize her an, her yerden erişin ve yönetin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Otomatik Tasarruf Asistanı</h3>
+                    <p>Harcama alışkanlıklarınıza göre otomatik tasarruf önerileri alın.</p>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <h2>Finansal Özgürlüğünüze Giden Yolculuk Şimdi Başlıyor</h2>
+            <p>BCMX ile tanışın, finansal geleceğinizi güvence altına alın ve hayallerinizi gerçekleştirin.</p>
+            <a href="#" onclick="openAuthModal('register')" class="cta-button">Hemen Ücretsiz Deneyin</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BCMX Hakkında</h3>
+                <p>BCMX, finansal özgürlüğünüze giden yolda size rehberlik eden yenilikçi bir fintech platformudur.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="features.html">Özellikler</a></li>
+                    <li><a href="pricing.html">Fiyatlandırma</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Bizi Takip Edin</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">Facebook</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">LinkedIn</a>
+                    <a href="#" class="social-icon">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BCMX. Tüm hakları saklıdır. | <a href="privacy.html">Gizlilik Politikası</a> | <a href="terms.html">Kullanım Şartları</a></p>
+        </div>
+    </footer>
+    <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
+    
+    <div id="authModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="showTab('login')">Giriş</div>
+                <div class="auth-tab" onclick="showTab('register')">Kayıt</div>
+            </div>
+            <div class="auth-form" id="login-form">
+                <input type="email" placeholder="E-posta adresiniz" required>
+                <input type="password" placeholder="Şifreniz" required>
+                <button onclick="login()">Giriş Yap</button>
+            </div>
+            <div class="auth-form" id="register-form" style="display:none;">
+                <input type="text" placeholder="Adınız" required>
+                <input type="email" placeholder="E-posta adresiniz" required>
+                <input type="password" placeholder="Şifreniz" required>
+                <button onclick="register()">Kayıt Ol</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

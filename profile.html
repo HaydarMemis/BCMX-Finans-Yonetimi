@@ -2,40 +2,355 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Profil - BCMX</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <h1>BCMX</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - BCMX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        .profile-icon img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .dashboard-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+        .dashboard-card h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        .currency-rates {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        .currency-rate {
+            text-align: center;
+            background-color: #f1f8ff;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .currency-rate span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 1rem;
+        }
+        .transaction-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        .budget-progress {
+            margin-top: 1rem;
+        }
+        .budget-bar {
+            background-color: #e0e0e0;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .budget-progress-fill {
+            height: 100%;
+            background-color: var(--secondary-color);
+            width: 0;
+            transition: width 0.5s ease-in-out;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        footer a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">BCMX</div>
             <nav>
-                <a href="index.html">Ana Sayfa</a>
-                <a href="income.html">Gelirler</a>
-                <a href="expenses.html">Giderler</a>
-                <a href="portfolio.html">Portföylerim</a>
-                <a href="profile.html">Profil</a>
+                <ul>
+                    <li><a href="index.html#anasayfa">Ana Sayfa</a></li>
+                    <li><a href="index.html#ozellikler">Özellikler</a></li>
+                    <li><a href="pricing.html">Fiyatlandırma</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="#" onclick="logout()">Çıkış Yap</a></li>
+                    <li class="profile-icon">
+                        <img src="path/to/user-avatar.jpg" alt="Profil" id="userAvatar">
+                    </li>
+                </ul>
             </nav>
-        </header>
-        <main>
-            <section>
-                <h2>Profil</h2>
-                <form id="profile-form">
-                    <input type="text" id="profile-name" placeholder="Adınız" required>
-                    <input type="email" id="profile-email" placeholder="E-posta" required>
-                    <input type="password" id="profile-password" placeholder="Şifre" required>
-                    <button type="submit">Güncelle</button>
-                </form>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2024 BCMX. Tüm hakları saklıdır.</p>
-            <p><a href="profile.html">Profil</a> | <a href="support.html">Destek</a> | <a href="details.html">Detaylı Bilgi</a></p>
-        </footer>
-        <script src="app.js"></script>
-    </body>
-    </html>
-    
+        </div>
+    </header>
+    <main>
+        <h1>Hoş Geldiniz, <span id="userName">[Kullanıcı Adı]</span></h1>
+        <div class="dashboard">
+            <div class="dashboard-card">
+                <h2>Varlıklarım</h2>
+                <p>Toplam Varlık: <strong id="totalAssets">100.000 TL</strong></p>
+                <div class="chart-container" id="assetDistributionChart"></div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Yatırımlarım</h2>
+                <div class="chart-container" id="investmentPerformanceChart"></div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Döviz Kurları</h2>
+                <div class="currency-rates">
+                    <div class="currency-rate">
+                        <p>USD/TRY</p>
+                        <span id="usd-try">8.50</span>
+                    </div>
+                    <div class="currency-rate">
+                        <p>EUR/TRY</p>
+                        <span id="eur-try">10.20</span>
+                    </div>
+                    <div class="currency-rate">
+                        <p>GBP/TRY</p>
+                        <span id="gbp-try">11.80</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Son İşlemler</h2>
+                <div class="transaction-list" id="recentTransactions">
+                    <!-- İşlemler JavaScript ile doldurulacak -->
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Bütçe Takibi</h2>
+                <div class="budget-progress">
+                    <p>Aylık Harcama Limiti: <span id="monthlyBudget">5000 TL</span></p>
+                    <div class="budget-bar">
+                        <div class="budget-progress-fill" id="budgetProgressBar"></div>
+                    </div>
+                    <p>Kalan: <span id="remainingBudget">2500 TL</span></p>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Finansal Hedefler</h2>
+                <ul id="financialGoals">
+                    <!-- Hedefler JavaScript ile doldurulacak -->
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCMX. Tüm hakları saklıdır. | <a href="privacy.html">Gizlilik Politikası</a> | <a href="terms.html">Kullanım Şartları</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function logout() {
+            // Çıkış işlemleri burada gerçekleştirilecek
+            alert("Çıkış yapılıyor...");
+            window.location.href = "index.html";
+        }
+
+        // Döviz kurlarını güncellemek için örnek bir fonksiyon
+        function updateCurrencyRates() {
+            // Gerçek bir API'den veri çekilecek
+            document.getElementById("usd-try").textContent = (Math.random() * (8.6 - 8.4) + 8.4).toFixed(2);
+            document.getElementById("eur-try").textContent = (Math.random() * (10.3 - 10.1) + 10.1).toFixed(2);
+            document.getElementById("gbp-try").textContent = (Math.random() * (11.9 - 11.7) + 11.7).toFixed(2);
+        }
+
+        // Kullanıcı bilgilerini güncelle
+        function updateUserInfo() {
+            document.getElementById("userName").textContent = "Ahmet Yılmaz";
+            document.getElementById("userAvatar").src = "path/to/ahmet-avatar.jpg";
+            document.getElementById("totalAssets").textContent = "125.000 TL";
+        }
+
+        // Varlık dağılımı grafiği
+        function createAssetDistributionChart() {
+            const ctx = document.getElementById('assetDistributionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Nakit', 'Hisse Senetleri', 'Kripto Para', 'Diğer'],
+                    datasets: [{
+                        data: [20, 40, 30, 10],
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+                    }]
+                }
+            });
+        }
+
+        // Yatırım performansı grafiği
+        function createInvestmentPerformanceChart() {
+            const ctx = document.getElementById('investmentPerformanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'],
+                    datasets: [{
+                        label: 'Yatırım Performansı',
+                        data: [100000, 105000, 103000, 110000, 115000, 125000],
+                        borderColor: '#36A2EB',
+                        tension: 0.1
+                    }]
+                }
+            });
+        }
+
+        // Son işlemleri güncelle
+        function updateRecentTransactions() {
+            const transactions = [
+                { date: '2024-03-15', description: 'Hisse Senedi Alımı', amount: '-5000 TL' },
+                { date: '2024-03-14', description: 'Kira Geliri', amount: '+3000 TL' },
+                { date: '2024-03-13', description: 'Kripto Para Satışı', amount: '+2000 TL' }
+            ];
+
+            const transactionList = document.getElementById('recentTransactions');
+            transactionList.innerHTML = transactions.map(t => `
+                <div class="transaction-item">
+                    <span>${t.date}</span>
+                    <span>${t.description}</span>
+                    <span>${t.amount}</span>
+                </div>
+            `).join('');
+        }
+
+        // Bütçe ilerlemesini güncelle
+        function updateBudgetProgress() {
+            const monthlyBudget = 5000;
+            const spent = 2500;
+            const remaining = monthlyBudget - spent;
+            const progressPercentage = (spent / monthlyBudget) * 100;
+
+            document.getElementById('monthlyBudget').textContent = `${monthlyBudget} TL`;
+            document.getElementById('remainingBudget').textContent = `${remaining} TL`;
+            document.getElementById('budgetProgressBar').style.width = `${progressPercentage}%`;
+        }
+
+        // Finansal hedefleri güncelle
+        function updateFinancialGoals() {
+            const goals = [
+                { name: 'Acil Durum Fonu', target: 20000, current: 15000 },
+                { name: 'Tatil Biriktirme', target: 10000, current: 3000 },
+                { name: 'Emeklilik Tasarrufu', target: 500000, current: 100000 }
+            ];
+
+            const goalsList = document.getElementById('financialGoals');
+            goalsList.innerHTML = goals.map(g => `
+                <li>
+                    <strong>${g.name}</strong>: ${g.current} TL / ${g.target} TL
+                    <progress value="${g.current}" max="${g.target}"></progress>
+                </li>
+            `).join('');
+        }
+
+        // Sayfa yüklendiğinde tüm fonksiyonları çalıştır
+        window.onload = function() {
+            updateCurrencyRates();
+            updateUserInfo();
+            createAssetDistributionChart();
+            createInvestmentPerformanceChart();
+            updateRecentTransactions();
+            updateBudgetProgress();
+            updateFinancialGoals();
+            setInterval(updateCurrencyRates, 300000); // Her 5 dakikada bir kurları güncelle
+        };
+    </script>
+</body>
+</html>

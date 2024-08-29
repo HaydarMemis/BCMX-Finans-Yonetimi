@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol - BCMX Akıllı Finans Yönetimi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        .auth-buttons a {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .login-btn {
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+        }
+        .login-btn:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+        .register-btn {
+            background-color: var(--secondary-color);
+            color: #fff;
+            margin-left: 10px;
+        }
+        .register-btn:hover {
+            background-color: var(--primary-color);
+        }
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 20px;
+        }
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+        }
+        .register-form {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        .register-info {
+            flex: 1;
+            padding-left: 2rem;
+            border-left: 1px solid #ddd;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 1rem;
+        }
+        input {
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 1.5rem;
+            padding: 0.8rem;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: var(--primary-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .terms-checkbox {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .terms-checkbox input {
+            margin-right: 0.5rem;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .feature-list li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo"><i class="fas fa-chart-line"></i>BCMX</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#anasayfa">Ana Sayfa</a></li>
+                    <li><a href="index.html#ozellikler">Özellikler</a></li>
+                    <li><a href="pricing.html">Fiyatlandırma</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li class="auth-buttons">
+                        <a href="login.html" class="login-btn">Giriş Yap</a>
+                        <a href="register.html" class="register-btn">Kayıt Ol</a>
+                    </li>
+                    <li class="profile-icon">
+                        <img src="path/to/default-avatar.png" alt="Profil">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="register-form">
+            <h1>Kayıt Ol</h1>
+            <form id="register-form" action="#" method="POST">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">E-posta</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Şifre</label>
+                <input type="password" id="password" name="password" required>
+                <div class="password-strength">Şifre gücü: <span id="password-strength-text"></span></div>
+                
+                <label for="confirm-password">Şifre Tekrar</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Kullanım şartlarını ve gizlilik politikasını kabul ediyorum</label>
+                </div>
+                
+                <button type="submit">Kayıt Ol</button>
+            </form>
+            <p>Zaten hesabınız var mı? <a href="login.html">Giriş yapın</a></p>
+        </div>
+        <div class="register-info">
+            <h2>BCMX'in Avantajları</h2>
+            <ul class="feature-list">
+                <li><i class="fas fa-chart-pie"></i> Gelişmiş finansal analiz araçları</li>
+                <li><i class="fas fa-wallet"></i> Akıllı bütçe yönetimi</li>
+                <li><i class="fas fa-piggy-bank"></i> Otomatik tasarruf planları</li>
+                <li><i class="fas fa-shield-alt"></i> Güvenli ve şifreli veri saklama</li>
+                <li><i class="fas fa-mobile-alt"></i> Mobil uygulama ile her yerden erişim</li>
+            </ul>
+            <p>BCMX ile finansal hedeflerinize daha hızlı ulaşın ve paranızı akıllıca yönetin!</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCMX. Tüm hakları saklıdır. | <a href="privacy.html">Gizlilik Politikası</a> | <a href="terms.html">Kullanım Şartları</a></p>
+    </footer>
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordStrengthText = document.getElementById('password-strength-text');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const registerForm = document.getElementById('register-form');
+
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            if (password.match(/[a-z]+/)) strength += 1;
+            if (password.match(/[A-Z]+/)) strength += 1;
+            if (password.match(/[0-9]+/)) strength += 1;
+            if (password.match(/[$@#&!]+/)) strength += 1;
+            if (password.length >= 8) strength += 1;
+
+            switch (strength) {
+                case 0:
+                case 1:
+                    passwordStrengthText.textContent = 'Zayıf';
+                    passwordStrengthText.style.color = 'red';
+                    break;
+                case 2:
+                case 3:
+                    passwordStrengthText.textContent = 'Orta';
+                    passwordStrengthText.style.color = 'orange';
+                    break;
+                case 4:
+                case 5:
+                    passwordStrengthText.textContent = 'Güçlü';
+                    passwordStrengthText.style.color = 'green';
+                    break;
+            }
+        });
+
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                alert('Şifreler eşleşmiyor. Lütfen kontrol edin.');
+                return;
+            }
+            // Burada form gönderme işlemi yapılabilir
+            alert('Kayıt başarılı!');
+        });
+    </script>
+</body>
+</html>
